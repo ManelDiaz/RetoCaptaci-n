@@ -20,9 +20,11 @@ services:
     container_name: postgres
     restart: always
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DBNAME: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
     ports:
       - "5432:5432"
     volumes:
