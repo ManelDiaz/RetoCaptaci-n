@@ -85,7 +85,7 @@ default:
   POSTGRES_SCHEMA: public # Optional
   POSTGRES_USER: username
   POSTGRES_PASSWORD: password
-  POSTGRES_HOST: hostname
+  POSTGRES_HOST: postgres  
   POSTGRES_PORT: 5432
   # Qdrant
   QDRANT_COLLECTION: collection

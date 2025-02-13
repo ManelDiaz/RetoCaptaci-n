@@ -1,1 +1,1 @@
-SELECT * FROM public.tabla_origen;
+SELECT * FROM public.tabla_origen1;

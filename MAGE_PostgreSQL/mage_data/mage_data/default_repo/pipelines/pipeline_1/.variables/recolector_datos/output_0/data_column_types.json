@@ -1,0 +1,1 @@
+{"id": "int64", "nombre": "str", "correo": "str", "edad": "int64", "fecha_registro": "datetime64[ns]"}

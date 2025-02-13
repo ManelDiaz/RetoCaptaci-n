@@ -1,3 +1,5 @@
+version: '3.8'  
+
 services:
   mage:
     image: mageai/mageai:latest
@@ -9,18 +11,14 @@ services:
     depends_on:
       - postgres
     environment:
-      POSTGRES_HOST: postgres
-      POSTGRES_PORT: 5432
-      POSTGRES_DB: postgres
-      POSTGRES_USER: username 
-      POSTGRES_PASSWORD: password 
+      MAGE_DATABASE_CONNECTION_URL: postgresql://username:password@postgres:5432/postgres
 
   postgres:
     image: postgres:15
     container_name: postgres
     restart: always
     environment:
-      POSTGRES_DB: postgres 
+      POSTGRES_DB: postgres
       POSTGRES_USER: username
       POSTGRES_PASSWORD: password
     ports:
