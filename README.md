@@ -9,8 +9,11 @@
 
   Descripción del proyecto:
     El proyecto hace uso de un pipeline de datos usando Mage y PostgreSQL. Utilizando estos contenedores, es posible:
+    
       - Extraer datos de una base de datos PostgreSQL
+      
       - Transformarlos mediante un script de Python en Mage 
+      
       - Guardar los cambios en una tabla nueva
 
   Pasos seguidos:
