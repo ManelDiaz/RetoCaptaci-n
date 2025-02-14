@@ -18,6 +18,7 @@
 
  Pasos seguidos:
     Para poder desrrollar el proyecto se han seguido los siguientes pasos: 
+
       1. Para empezar se configuraron PostgreSQL y Mage en dos contenedores Docker. 
          Para ello se creó el archivo docker-compose.yml donde se realizaron las configuraciones necesarias para ambos servicios. 
          Además la tabla de datos inicial en PostgreSQL.
