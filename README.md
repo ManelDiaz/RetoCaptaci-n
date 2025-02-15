@@ -36,8 +36,33 @@
 
  Instrucciones de uso:
     Para poder ejecutar el proyecto sería necesario clonar el repositorio mediante el comando 'git clone'. Después, es necesario levantar los contenedores 
-    ejecutando el comando 'docker-compose up -d' en la terminal de WSL. Al tener los contendores ejecutando, es posible acceder a la interfaz de Mage buscando 
-    en el navegador 'http://localhost:6789'. Una vez dentro, se selecciona el pipeline a ejecutar y se puede comprobar el correcto funcionamiento. 
+    ejecutando el comando 'docker-compose up -d' en la terminal de WSL. 
+    
+    AL generar los contenedores será necesario crear en PostgresSQL las tablas de datos que se van a utilizar, para ello unar el siguiente código:
+
+         CREATE TABLE usuarios_origen (
+         id SERIAL PRIMARY KEY,
+         nombre VARCHAR(100),
+         edad INT,
+         email VARCHAR(100)
+         );
+
+         CREATE TABLE usuarios_destino (
+         id SERIAL PRIMARY KEY,
+         nombre_completo VARCHAR(200),
+         edad INT,
+         email VARCHAR(100)
+         );
+
+         INSERT INTO usuarios_origen (nombre, edad, email) VALUES
+         ('Juan Perez', 30, 'juan.perez@example.com'),
+         ('Maria Lopez', 25, 'maria.lopez@example.com'),
+         ('Carlos Sanchez', 40, 'carlos.sanchez@example.com');
+    
+    Al tener los contendores ejecutando y las tablas que se van a utilizar creadas, es posible acceder a la interfaz de Mage buscando 
+    en el navegador 'http://localhost:6789'. 
+    
+    Una vez dentro, se selecciona el pipeline a ejecutar "pipeline_final", y se ejecutan los bloques.
     
  Posibles vías de mejora:
 
@@ -51,4 +76,10 @@
     - Problemas con el bloque de recopilación de datos de Mage. Debido a que cambiamos las columnas de la tabla de PostgreSQL, 
       aparecia un error de que las columnas no coincidian. Cambiando de nuevo las columnas se pudo arreglar el problema. 
 
+    - Es necesario crear las tablas de datos cada vez que se quiere descarga por primera vez el proyecto, estaría muy bien conseguir poder pasar las tablas creadas con los pulls y push de github.
+
  Alternativas posibles:
+
+ (desarrollar alternmativas)
+
+
