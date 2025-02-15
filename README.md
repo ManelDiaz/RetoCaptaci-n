@@ -38,7 +38,10 @@
     Para poder ejecutar el proyecto sería necesario clonar el repositorio mediante el comando 'git clone'. Después, es necesario levantar los contenedores 
     ejecutando el comando 'docker-compose up -d' en la terminal de WSL. 
     
-    AL generar los contenedores será necesario crear en PostgresSQL las tablas de datos que se van a utilizar, para ello unar el siguiente código:
+    Al generar los contenedores será necesario crear en PostgresSQL las tablas de datos que se van a utilizar, para ello usar el siguiente código:
+
+      #docker exec -it postgres psql -U username -d postgres
+      para acceder a postgres, y una vez dentro:
 
          CREATE TABLE usuarios_origen (
          id SERIAL PRIMARY KEY,
@@ -63,12 +66,18 @@
     en el navegador 'http://localhost:6789'. 
     
     Una vez dentro, se selecciona el pipeline a ejecutar "pipeline_final", y se ejecutan los bloques.
+
+    Con pgAdmin, se pueden visualizar las dos tablas.
     
  Posibles vías de mejora:
 
  Problemas y retos encontrados:
   En cuanto a los problmas encontrados durante la creación del proyecto, se pueden destacar los siguientes:
   
+    - Problemas a la hora de acceder correctamente a PostgreSQL, ya que por todas las descargas desde git, puede no crearse 
+      correctamente el usuario definido en el docker-compose. Para  solucionarlo, se tienen que reiniciar del todo los contenedores 
+      con #docker-compose down -v, y de nuevo #docker-compose up -d.
+
     - Problemas a la hora de conectar Mage con PostgreSQL. Debido a que creamos ambos contenedores en una misma carpeta.
       no utilizamos un entorno virtual de Python (venv). Se acabó solucionando cambiando algunas configuraciones del host
       y del archivo io_config.yaml.
@@ -80,6 +89,6 @@
 
  Alternativas posibles:
 
- (desarrollar alternmativas)
+ usar SQLAlchemy
 
 
