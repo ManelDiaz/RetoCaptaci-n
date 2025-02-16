@@ -17,9 +17,9 @@
       - Guardar los cambios en una tabla nueva
 
  Pasos seguidos:
-    Para poder desrrollar el proyecto se han seguido los siguientes pasos: 
+    Para poder desarrollar el proyecto se han seguido los siguientes pasos: 
 
-      1. Para empezar se configuraron PostgreSQL y Mage en dos contenedores Docker. 
+      1. Para empezar, se configuraron PostgreSQL y Mage en dos contenedores Docker. 
          Para ello se creó el archivo docker-compose.yml donde se realizaron las configuraciones necesarias para ambos servicios. 
          Además la tabla de datos inicial en PostgreSQL.
          
@@ -27,11 +27,11 @@
 
       3. Se creó el pipeline de Mage.
 
-      4. Se desarrolló el bloque de estración de datos de la tabla. En este proceso se recopilan todos los datos relevantes.
+      4. Se desarrolló el bloque de extracción de datos de la tabla. En este proceso se recopilan todos los datos relevantes.
 
-      5. Se creó el bloque de extracción de datos, en el cual se editaban los datos recibidos del bloque anterior. 
-         En este caso, se transformaron los siguientes datos: apellido se convierte a mayusculas, el salario pasa a ser un numero entero, 
-         ...
+      5. Se creó el bloque de transformación de datos, en el cual se editaban los datos recibidos del bloque anterior. 
+         En este caso, se transformó el siguiente dato de la tabla: se suman dos años a la edad de cada persona. 
+         
       6. Se creo el bloque de almacenamiento de datos trasnformados, para ello se creo una tabla adicional en PostgreSQL. 
 
  Instrucciones de uso:
@@ -85,10 +85,13 @@
     - Problemas con el bloque de recopilación de datos de Mage. Debido a que cambiamos las columnas de la tabla de PostgreSQL, 
       aparecia un error de que las columnas no coincidian. Cambiando de nuevo las columnas se pudo arreglar el problema. 
 
-    - Es necesario crear las tablas de datos cada vez que se quiere descarga por primera vez el proyecto, estaría muy bien conseguir poder pasar las tablas creadas con los pulls y push de github.
+    - Es necesario crear las tablas de datos cada vez que se quiere descarga por primera vez el proyecto, estaría muy bien 
+      conseguir poder pasar las tablas creadas con los pulls y push de github.
 
  Alternativas posibles:
 
- usar SQLAlchemy
+ Podría haberse utilizado SQLAlchemy para abstraer las consultas SQL en Python, definiendo modelos de las tablas como clases 
+ y ejecutando operaciones de lectura, transformación y escritura con métodos simples en lugar de consultas SQL manuales. 
+ Esto hubiera hecho que la interacción con PostgreSQL en Mage fuera más limpia.
 
 
