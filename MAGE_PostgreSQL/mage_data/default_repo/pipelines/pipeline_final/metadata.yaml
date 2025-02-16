@@ -6,7 +6,7 @@ blocks:
     data_provider_profile: default
     dbt: {}
     disable_query_preprocessing: false
-    export_write_policy: append
+    export_write_policy: replace
     limit: 1000
     use_raw_sql: false
   downstream_blocks:
